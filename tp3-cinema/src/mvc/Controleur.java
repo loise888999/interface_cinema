@@ -17,7 +17,7 @@ public class Controleur {
 		
 		
 		this.la_vue.addCalculateListener(new CalculateListener());
-
+		this.la_vue.addConfirmerReservation(new ConfirmerReservation());
 		
 		
 	}
@@ -34,6 +34,16 @@ public class Controleur {
 		
 		public void actionPerformed(ActionEvent e) {
 			le_model.active_menu_cinema(la_vue.getPanel_cinema(),la_vue.getMenu());
+			String[] listeClien = le_model.charger_liste_clien(1);
+			
+			
+			
+		}
+	}
+	class ConfirmerReservation implements ActionListener{
+		
+		public void actionPerformed(ActionEvent e) {
+			le_model.incsrire_client(1);
 			String[] listeClien = le_model.charger_liste_clien(1);
 			
 			

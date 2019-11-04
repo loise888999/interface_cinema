@@ -47,5 +47,10 @@ public class Model {
 		return listeClien;
 	}
 	
+	public void incsrire_client(int nobre_clien) {
+		System.out.println("allo model"+nobre_clien);
+	}
+	
+	
 
 }
