@@ -41,10 +41,11 @@ public class Controleur {
 		}
 	}
 	class ConfirmerReservation implements ActionListener{
-		
+
 		public void actionPerformed(ActionEvent e) {
-			le_model.incsrire_client(1);
-			String[] listeClien = le_model.charger_liste_clien(1);
+			le_model.incsrire_client(la_vue.getTxtNom(), la_vue.getcBoxNbReservatin().getSelectedIndex(), 
+					la_vue.getRdbtPopc().isSelected(), la_vue.getRdbtDbox().isSelected(), la_vue.getRdbt3D().isSelected());
+			
 			
 			
 			

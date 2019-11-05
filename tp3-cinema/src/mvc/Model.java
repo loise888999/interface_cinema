@@ -7,6 +7,8 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
 
 //calcule
 public class Model {
@@ -47,8 +49,33 @@ public class Model {
 		return listeClien;
 	}
 	
-	public void incsrire_client(int nobre_clien) {
-		System.out.println("allo model"+nobre_clien);
+	public void incsrire_client(JTextField jTextField, Integer nobre_de_place  , Boolean popcorn_inc, Boolean dbox_inc, Boolean d3_inc) {
+		Double prix_total = 7.00;
+		nobre_de_place += 1;
+		
+		if (popcorn_inc) {
+			prix_total += 1.80;
+		}
+		
+		if (dbox_inc) {
+			prix_total += 5.00;
+		}
+		
+		if (d3_inc) {
+			prix_total += 4.00;
+		}
+		
+		
+	
+		prix_total = prix_total *nobre_de_place;
+		
+		System.out.println("allo model   "+prix_total.toString());
+	}
+	
+	
+	public void test(Boolean test) {
+		System.out.println(test);
+		
 	}
 	
 	

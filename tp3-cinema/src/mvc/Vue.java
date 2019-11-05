@@ -50,9 +50,9 @@ public class Vue {
 	private JLabel lblReserverAuNom = new JLabel("Reserver au nom de");
 	private JPanel panel_1 = new JPanel();
 	private JLabel lblOptionDisponible = new JLabel("Option Disponible");
-	private JRadioButton rdbtnDbox = new JRadioButton("D-Box");
-	private JRadioButton rdbtnPopcorneInclue = new JRadioButton("Popcorne inclue");
-	private JRadioButton rdbtnd = new JRadioButton("3D");
+	private JRadioButton rdbtDbox = new JRadioButton("D-Box");
+	private JRadioButton rdbtPopc = new JRadioButton("Popcorne illimiter");
+	private JRadioButton rdbt3D = new JRadioButton("3D");
 	private JButton btnConfirmerLaReservation = new JButton("Confirmer la reservation");
 	private JLabel labelRetourError = new JLabel("");
 	
@@ -223,22 +223,23 @@ public class Vue {
 		panel_1.add(lblOptionDisponible);
 		
 		
-		rdbtnDbox.setBackground(Color.LIGHT_GRAY);
-		rdbtnDbox.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		rdbtnDbox.setBounds(27, 98, 222, 45);
-		panel_1.add(rdbtnDbox);
+		rdbtDbox.setBackground(Color.LIGHT_GRAY);
+		rdbtDbox.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		rdbtDbox.setBounds(27, 98, 222, 45);
+		panel_1.add(rdbtDbox);
+		rdbtPopc.setToolTipText("Ces a dire illimiter");
 		
 		
-		rdbtnPopcorneInclue.setBackground(Color.LIGHT_GRAY);
-		rdbtnPopcorneInclue.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		rdbtnPopcorneInclue.setBounds(27, 173, 222, 52);
-		panel_1.add(rdbtnPopcorneInclue);
+		rdbtPopc.setBackground(Color.LIGHT_GRAY);
+		rdbtPopc.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		rdbtPopc.setBounds(27, 173, 222, 52);
+		panel_1.add(rdbtPopc);
 		
 		
-		rdbtnd.setBackground(Color.LIGHT_GRAY);
-		rdbtnd.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		rdbtnd.setBounds(27, 256, 222, 52);
-		panel_1.add(rdbtnd);
+		rdbt3D.setBackground(Color.LIGHT_GRAY);
+		rdbt3D.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		rdbt3D.setBounds(27, 256, 222, 52);
+		panel_1.add(rdbt3D);
 		
 		
 		btnConfirmerLaReservation.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -276,7 +277,6 @@ public class Vue {
 		btnConfirmerLaReservation.addActionListener(confirmerReservation);
 	          
 	}
-	 
 
 	public JFrame getFrame() {
 		return frame;
@@ -292,14 +292,6 @@ public class Vue {
 
 	public void setTxtMenue(JTextField txtMenue) {
 		this.txtMenue = txtMenue;
-	}
-
-	public JTextField getTxtCinema() {
-		return txtNom;
-	}
-
-	public void setTxtCinema(JTextField txtCinema) {
-		this.txtNom = txtCinema;
 	}
 
 	public JPanel getMenu() {
@@ -342,20 +334,28 @@ public class Vue {
 		this.lblDimancheProchain = lblDimancheProchain;
 	}
 
+	public JRadioButton getRdbtne_1dimanche() {
+		return rdbtne_1dimanche;
+	}
+
+	public void setRdbtne_1dimanche(JRadioButton rdbtne_1dimanche) {
+		this.rdbtne_1dimanche = rdbtne_1dimanche;
+	}
+
+	public JRadioButton getRadioButton_2dimanche() {
+		return radioButton_2dimanche;
+	}
+
+	public void setRadioButton_2dimanche(JRadioButton radioButton_2dimanche) {
+		this.radioButton_2dimanche = radioButton_2dimanche;
+	}
+
 	public JLabel getLblNobreDePlace() {
 		return lblNobreDePlace;
 	}
 
 	public void setLblNobreDePlace(JLabel lblNobreDePlace) {
 		this.lblNobreDePlace = lblNobreDePlace;
-	}
-
-	public JRadioButton getRdbtne_1dimanche() {
-		return rdbtne_1dimanche;
-	}
-
-	public JRadioButton getRadioButton_2dimanche() {
-		return radioButton_2dimanche;
 	}
 
 	public JTextField getTxtNom() {
@@ -382,11 +382,11 @@ public class Vue {
 		this.panel = panel;
 	}
 
-	public JComboBox getCBoxNbReservatin() {
+	public JComboBox getcBoxNbReservatin() {
 		return cBoxNbReservatin;
 	}
 
-	public void setCBoxNbReservatin(JComboBox cBoxNbReservatin) {
+	public void setcBoxNbReservatin(JComboBox cBoxNbReservatin) {
 		this.cBoxNbReservatin = cBoxNbReservatin;
 	}
 
@@ -422,28 +422,28 @@ public class Vue {
 		this.lblOptionDisponible = lblOptionDisponible;
 	}
 
-	public JRadioButton getRdbtnDbox() {
-		return rdbtnDbox;
+	public JRadioButton getRdbtDbox() {
+		return rdbtDbox;
 	}
 
-	public void setRdbtnDbox(JRadioButton rdbtnDbox) {
-		this.rdbtnDbox = rdbtnDbox;
+	public void setRdbtDbox(JRadioButton rdbtDbox) {
+		this.rdbtDbox = rdbtDbox;
 	}
 
-	public JRadioButton getRdbtnPopcorneInclue() {
-		return rdbtnPopcorneInclue;
+	public JRadioButton getRdbtPopc() {
+		return rdbtPopc;
 	}
 
-	public void setRdbtnPopcorneInclue(JRadioButton rdbtnPopcorneInclue) {
-		this.rdbtnPopcorneInclue = rdbtnPopcorneInclue;
+	public void setRdbtPopc(JRadioButton rdbtPopc) {
+		this.rdbtPopc = rdbtPopc;
 	}
 
-	public JRadioButton getRdbtnd() {
-		return rdbtnd;
+	public JRadioButton getRdbt3D() {
+		return rdbt3D;
 	}
 
-	public void setRdbtnd(JRadioButton rdbtnd) {
-		this.rdbtnd = rdbtnd;
+	public void setRdbt3D(JRadioButton rdbt3d) {
+		rdbt3D = rdbt3d;
 	}
 
 	public JButton getBtnConfirmerLaReservation() {
@@ -485,14 +485,9 @@ public class Vue {
 	public JLabel getLblOccuperPlace() {
 		return lblOccuperPlace;
 	}
-
-	public void setRdbtne_1dimanche(JRadioButton rdbtne_1dimanche) {
-		this.rdbtne_1dimanche = rdbtne_1dimanche;
-	}
-
-	public void setRadioButton_2dimanche(JRadioButton radioButton_2dimanche) {
-		this.radioButton_2dimanche = radioButton_2dimanche;
-	}
+	 
+	
+	
 	
 	
 	
