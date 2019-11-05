@@ -30,11 +30,9 @@ public class Vue {
 	private JTextField txtMenue;
 	private JPanel menu = new JPanel();
 	private JButton btnMenue = new JButton("menue2");
-	private JLabel lblCeDimanche = new JLabel("Ce dimanche");
 	private JPanel panel_cinema = new JPanel();
-	private JLabel lblDimancheProchain = new JLabel("Dimanche prochain");
-	private JRadioButton rdbtne_1dimanche = new JRadioButton("");
-	private JRadioButton radioButton_2dimanche = new JRadioButton("");
+	private JRadioButton rdbtne_1dimanche = new JRadioButton("Ce dimanche");
+	private JRadioButton rdbtnDimancheProchain = new JRadioButton("Dimanche prochain (-1$ )");
 	private JLabel lblNobreDePlace = new JLabel("Nombre de place");
 	private final JLabel lblTotal = new JLabel("Total");
 	private final JLabel lblDisponible = new JLabel("Disponible");
@@ -108,27 +106,18 @@ public class Vue {
 		
 		frame.getContentPane().add(panel_cinema, "name_530647735891700");
 		panel_cinema.setLayout(null);
-		
-		
-		lblCeDimanche.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblCeDimanche.setBounds(12, 13, 202, 34);
-		panel_cinema.add(lblCeDimanche);
-		
-		
-		lblDimancheProchain.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblDimancheProchain.setBounds(12, 60, 202, 34);
-		panel_cinema.add(lblDimancheProchain);
+		rdbtne_1dimanche.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		rdbtne_1dimanche.setToolTipText("Activer ce dimanche");
 		
 		
-		rdbtne_1dimanche.setBounds(180, 20, 33, 25);
+		rdbtne_1dimanche.setBounds(12, 22, 243, 35);
 		panel_cinema.add(rdbtne_1dimanche);
-		radioButton_2dimanche.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		radioButton_2dimanche.setToolTipText("Activer dimanche prochain");
+		rdbtnDimancheProchain.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		rdbtnDimancheProchain.setToolTipText("Activer dimanche prochain");
 		
 		
-		radioButton_2dimanche.setBounds(180, 67, 33, 25);
-		panel_cinema.add(radioButton_2dimanche);
+		rdbtnDimancheProchain.setBounds(12, 60, 253, 34);
+		panel_cinema.add(rdbtnDimancheProchain);
 		
 		
 		panel_info.setBorder(new LineBorder(new Color(0, 0, 0), 3));
@@ -310,13 +299,7 @@ public class Vue {
 		this.btnMenue = btnMenue;
 	}
 
-	public JLabel getLblCeDimanche() {
-		return lblCeDimanche;
-	}
 
-	public void setLblCeDimanche(JLabel lblCeDimanche) {
-		this.lblCeDimanche = lblCeDimanche;
-	}
 
 	public JPanel getPanel_cinema() {
 		return panel_cinema;
@@ -326,13 +309,6 @@ public class Vue {
 		this.panel_cinema = panel_cinema;
 	}
 
-	public JLabel getLblDimancheProchain() {
-		return lblDimancheProchain;
-	}
-
-	public void setLblDimancheProchain(JLabel lblDimancheProchain) {
-		this.lblDimancheProchain = lblDimancheProchain;
-	}
 
 	public JRadioButton getRdbtne_1dimanche() {
 		return rdbtne_1dimanche;
@@ -343,11 +319,11 @@ public class Vue {
 	}
 
 	public JRadioButton getRadioButton_2dimanche() {
-		return radioButton_2dimanche;
+		return rdbtnDimancheProchain;
 	}
 
 	public void setRadioButton_2dimanche(JRadioButton radioButton_2dimanche) {
-		this.radioButton_2dimanche = radioButton_2dimanche;
+		this.rdbtnDimancheProchain = radioButton_2dimanche;
 	}
 
 	public JLabel getLblNobreDePlace() {
