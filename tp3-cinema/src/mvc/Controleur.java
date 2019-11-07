@@ -18,7 +18,7 @@ public class Controleur {
 		
 		this.la_vue.addCalculateListener(new CalculateListener());
 		this.la_vue.addConfirmerReservation(new ConfirmerReservation());
-		
+		this.la_vue.addPreCalcul(new PreCalcul());
 		
 	}
 	
@@ -45,6 +45,22 @@ public class Controleur {
 		public void actionPerformed(ActionEvent e) {
 			le_model.incsrire_client(la_vue.getTxtNom().getText(), la_vue.getcBoxNbReservatin().getSelectedIndex(), 
 					la_vue.getRdbtPopc().isSelected(), la_vue.getRdbtDbox().isSelected(), la_vue.getRdbt3D().isSelected());
+			
+			
+			
+			
+		}
+	}
+	
+	
+	class PreCalcul implements ActionListener{
+		
+		public void actionPerformed(ActionEvent e) {
+			String prix_calculer;
+			
+			prix_calculer=le_model.preCalcul( la_vue.getcBoxNbReservatin().getSelectedIndex(), 
+					la_vue.getRdbtPopc().isSelected(), la_vue.getRdbtDbox().isSelected(), la_vue.getRdbt3D().isSelected());
+			la_vue.setLblPrixCalc(prix_calculer);
 			
 			
 			

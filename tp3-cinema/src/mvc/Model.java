@@ -1,8 +1,10 @@
 package mvc;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -54,10 +56,15 @@ public class Model {
 		String texte;
 		Double prix_total = 7.00;
 		nobre_de_place += 1;
+		String nom_char="";
+		
+		
 		
 		for (Integer i = 0  ; i < nom.length(); i++) {
-			if (nom.charAt(i) == "/") {
+			if (nom.charAt(i) == '/') {
 				
+			} else {
+				nom_char =nom_char + nom.charAt(i);
 			}
 			
 		}
@@ -80,10 +87,42 @@ public class Model {
 		prix_total = prix_total *nobre_de_place;
 		
 		
-		
-		texte = nom +"/" + prix_total + "/" + nobre_de_place  ;
+		texte = nom_char +"/" + prix_total + "/" + nobre_de_place  ;
 		System.out.println(texte);
+		enregistrer(texte);
+		
 	}
+	
+	
+	public String preCalcul( Integer nobre_de_place  , Boolean popcorn_inc, Boolean dbox_inc, Boolean d3_inc) {
+		String texte;
+		Double prix_total = 7.00;
+		nobre_de_place += 1;
+		
+		
+		
+		
+		if (popcorn_inc) {
+			prix_total += 1.80;
+		}
+		
+		if (dbox_inc) {
+			prix_total += 5.00;
+		}
+		
+		if (d3_inc) {
+			prix_total += 4.00;
+		}
+		
+		
+	
+		prix_total = prix_total *nobre_de_place;
+		texte= prix_total.toString()+"$";
+		return texte;
+		
+		
+	}
+	
 	
 	
 	public void test(Boolean test) {
@@ -93,7 +132,17 @@ public class Model {
 	
 	
 	public void enregistrer(String enregistrement) {
-		File fichier = new File(liste_clien);
+		
+		try {
+			BufferedWriter fi_ecrir = new BufferedWriter(new FileWriter(liste_clien, true)); 
+			fi_ecrir.write(enregistrement+"\n");
+			fi_ecrir.close();
+		
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 	}
 	

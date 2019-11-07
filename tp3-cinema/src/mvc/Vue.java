@@ -53,8 +53,9 @@ public class Vue {
 	private JRadioButton rdbt3D = new JRadioButton("3D");
 	private JButton btnConfirmerLaReservation = new JButton("Confirmer la reservation");
 	private JLabel labelRetourError = new JLabel("");
+	private JLabel lblPrixCalc = new JLabel("7$");
+	private JButton btnCalculerPrix = new JButton("Calculer");
 	
-
 	/**
 	 * Launch the application.
 	 
@@ -122,7 +123,7 @@ public class Vue {
 		
 		panel_info.setBorder(new LineBorder(new Color(0, 0, 0), 3));
 		panel_info.setBackground(Color.GRAY);
-		panel_info.setBounds(12, 299, 423, 174);
+		panel_info.setBounds(12, 299, 402, 174);
 		panel_cinema.add(panel_info);
 		panel_info.setLayout(null);
 		lblNobreDePlace.setBounds(31, 13, 369, 40);
@@ -248,6 +249,18 @@ public class Vue {
 		
 		labelRetourError.setBounds(236, 71, 243, 25);
 		panel_cinema.add(labelRetourError);
+		lblPrixCalc.setToolTipText("prix selon ce qui a eter selectioner");
+		
+		
+		lblPrixCalc.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPrixCalc.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblPrixCalc.setBounds(424, 404, 97, 47);
+		panel_cinema.add(lblPrixCalc);
+		
+		
+		btnCalculerPrix.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnCalculerPrix.setBounds(427, 341, 94, 47);
+		panel_cinema.add(btnCalculerPrix);
 		
 		
 		
@@ -264,6 +277,14 @@ public class Vue {
 			 
 		
 		btnConfirmerLaReservation.addActionListener(confirmerReservation);
+	          
+	}
+	
+	
+	void addPreCalcul(ActionListener preCalcul){
+			 
+		
+		btnCalculerPrix.addActionListener(preCalcul);
 	          
 	}
 
@@ -461,10 +482,29 @@ public class Vue {
 	public JLabel getLblOccuperPlace() {
 		return lblOccuperPlace;
 	}
-	 
-	
-	
-	
-	
+
+	public JRadioButton getRdbtnDimancheProchain() {
+		return rdbtnDimancheProchain;
+	}
+
+	public void setRdbtnDimancheProchain(JRadioButton rdbtnDimancheProchain) {
+		this.rdbtnDimancheProchain = rdbtnDimancheProchain;
+	}
+
+	public JLabel getLblPrixCalc() {
+		return lblPrixCalc;
+	}
+
+	public void setLblPrixCalc(String lblPrixCalc) {
+		this.lblPrixCalc.setText(lblPrixCalc); 
+	}
+
+	public JButton getBtnCalculerPrix() {
+		return btnCalculerPrix;
+	}
+
+	public void setBtnCalculerPrix(JButton btnCalculerPrix) {
+		this.btnCalculerPrix = btnCalculerPrix;
+	}
 	
 }
