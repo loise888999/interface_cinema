@@ -9,6 +9,7 @@ import java.awt.CardLayout;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -18,11 +19,14 @@ import java.awt.SystemColor;
 import javax.swing.SwingConstants;
 import javax.swing.JSeparator;
 import javax.swing.border.LineBorder;
+import javax.swing.event.ChangeListener;
 import javax.swing.UIManager;
 import javax.swing.JTree;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.jws.Oneway;
 import javax.swing.Box;
+import javax.swing.event.ChangeEvent;
 
 public class Vue {
 
@@ -107,6 +111,12 @@ public class Vue {
 		
 		frame.getContentPane().add(panel_cinema, "name_530647735891700");
 		panel_cinema.setLayout(null);
+		
+		
+		
+		
+	
+		rdbtne_1dimanche.setSelected(true);
 		rdbtne_1dimanche.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		rdbtne_1dimanche.setToolTipText("Activer ce dimanche");
 		
@@ -245,9 +255,10 @@ public class Vue {
 		lblReservation.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		lblReservation.setBounds(226, 4, 254, 47);
 		panel_cinema.add(lblReservation);
+		labelRetourError.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
 		
-		labelRetourError.setBounds(236, 71, 243, 25);
+		labelRetourError.setBounds(444, 13, 347, 44);
 		panel_cinema.add(labelRetourError);
 		lblPrixCalc.setToolTipText("prix selon ce qui a eter selectioner");
 		
@@ -287,6 +298,25 @@ public class Vue {
 		btnCalculerPrix.addActionListener(preCalcul);
 	          
 	}
+	
+	
+	void addChoixDimanche(ActionListener choixDimanche) {
+		
+		System.out.println("1e dimanche");
+		rdbtne_1dimanche.addActionListener(choixDimanche);
+		
+	}
+	
+	void addChoixDimancheProc(ActionListener choixDimanche) {
+		System.out.println("2e dimanche");
+		
+		rdbtnDimancheProchain.addActionListener(choixDimanche);
+	}
+		
+	rdbtne_1dimanche.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+		}
+	});
 
 	public JFrame getFrame() {
 		return frame;
@@ -455,8 +485,8 @@ public class Vue {
 		return labelRetourError;
 	}
 
-	public void setLabelRetourError(JLabel labelRetourError) {
-		this.labelRetourError = labelRetourError;
+	public void setLabelRetourError(String str_error) {
+		this.labelRetourError.setText(str_error);
 	}
 
 	public JLabel getLblTotal() {
