@@ -479,8 +479,16 @@ public class Vue {
 		return lblDisponiblePlace;
 	}
 
+	public void setLblDisponiblePlace(String place_disponible) {
+		this.lblDisponiblePlace.setText(place_disponible);
+	}
+	
 	public JLabel getLblOccuperPlace() {
 		return lblOccuperPlace;
+	}
+	
+	public void setLblOccuperPlace(String ocuper_place) {
+		this.lblOccuperPlace.setText(ocuper_place);
 	}
 
 	public JRadioButton getRdbtnDimancheProchain() {

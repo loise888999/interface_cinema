@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 //calcule
 public class Model {
 	String liste_clien = "client1.txt";
-	
+	String[] listeClien= new String[50];
 	
 	public void active_menu_cinema(JPanel activer, JPanel desactiver) {
 		activer.setVisible(true);
@@ -27,9 +27,11 @@ public class Model {
 		
 	}
 	
-	public String[] charger_liste_clien(int la_semain) {
-		String[] listeClien= {"0"};
+	public Integer charger_liste_clien(int la_semain) {
+		
 		String paterne ="[^ ]*";
+		Integer nb_persone=0;
+		char ligne;
 		int i=0;
 		try {
 			File fichier = new File(liste_clien);
@@ -38,7 +40,10 @@ public class Model {
 				
 				String valq = cherc.next(paterne);
 				listeClien[i] = valq.toString();
-				System.out.println("ffff");
+				System.out.println(listeClien[i]);
+				ligne = listeClien[i].charAt(listeClien[i].length()-1);
+				nb_persone = nb_persone + Character.getNumericValue(ligne);
+				
 				i++;
 			}
 			cherc.close();
@@ -47,9 +52,9 @@ public class Model {
 			
 		}
 		
-		System.out.println(listeClien[0]);
+		System.out.println(nb_persone);
 		
-		return listeClien;
+		return nb_persone;
 	}
 	
 	public void incsrire_client(String nom, Integer nobre_de_place  , Boolean popcorn_inc, Boolean dbox_inc, Boolean d3_inc) {
