@@ -1,15 +1,11 @@
 package mvc;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.awt.event.ComponentListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -17,16 +13,16 @@ import java.awt.Font;
 import javax.swing.JRadioButton;
 import java.awt.SystemColor;
 import javax.swing.SwingConstants;
-import javax.swing.JSeparator;
 import javax.swing.border.LineBorder;
+import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import javax.swing.UIManager;
-import javax.swing.JTree;
+
+import mvc.Controleur.ChoixDimanche;
+
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
-import javax.jws.Oneway;
-import javax.swing.Box;
-import javax.swing.event.ChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;
 
 public class Vue {
 
@@ -111,6 +107,12 @@ public class Vue {
 		
 		frame.getContentPane().add(panel_cinema, "name_530647735891700");
 		panel_cinema.setLayout(null);
+		
+			
+		
+		
+			
+		
 		
 		
 		
@@ -301,22 +303,20 @@ public class Vue {
 	
 	
 	void addChoixDimanche(ActionListener choixDimanche) {
-		
-		System.out.println("1e dimanche");
+
 		rdbtne_1dimanche.addActionListener(choixDimanche);
 		
 	}
 	
 	void addChoixDimancheProc(ActionListener choixDimanche) {
-		System.out.println("2e dimanche");
+		
 		
 		rdbtnDimancheProchain.addActionListener(choixDimanche);
 	}
+
+	
 		
-	rdbtne_1dimanche.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent e) {
-		}
-	});
+	
 
 	public JFrame getFrame() {
 		return frame;

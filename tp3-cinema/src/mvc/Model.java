@@ -8,13 +8,18 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 //calcule
 public class Model {
-	String liste_clien = "client1.txt";
+	String fichier_de_semain = "1.txt";
+	String client = "client";
+	String liste_clien = client+fichier_de_semain;
+	
+	
 	String[] listeClien= new String[50];
 	
 	public void active_menu_cinema(JPanel activer, JPanel desactiver) {
@@ -27,7 +32,7 @@ public class Model {
 		
 	}
 	
-	public Integer charger_liste_clien(int la_semain) {
+	public Integer charger_liste_clien() {
 		
 		String paterne ="[^ ]*";
 		Integer nb_persone=0;
@@ -151,5 +156,44 @@ public class Model {
 		
 	}
 	
+	
+	
+	public void choixDuDimanche(Integer bonton_clik,JRadioButton ce_dimanche, JRadioButton dimanche_prochain) {
+		if (bonton_clik ==1) {
+			
+			dimanche_prochain.setSelected(false);
+			ce_dimanche.setSelected(true);
+			fichier_de_semain = "1.txt";
+			
+		}
+		if (bonton_clik == 2) {
+			
+			dimanche_prochain.setSelected(true);
+			ce_dimanche.setSelected(false);
+			fichier_de_semain = "1.txt";
+		}
+		
+		
+	}
+	
+	Integer place_disponible, place_ocuper;
+	
+	public void placerEnVueLesPlace(Integer no_persone, JLabel lblplace_disponible, JLabel lblplace_ocuper) {
+		place_disponible = Integer.valueOf(lblplace_disponible.getText())-no_persone;
+		place_ocuper = no_persone;
+		
+		
+	}
 
+	public Integer getPlace_disponible() {
+		return place_disponible;
+	}
+
+	public Integer getPlace_ocuper() {
+		return place_ocuper;
+	}
+	
+	
+	
+	
 }
