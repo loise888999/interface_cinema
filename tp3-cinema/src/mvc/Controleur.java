@@ -67,7 +67,7 @@ public class Controleur {
 			Boolean popcorn = la_vue.getRdbtPopc().isSelected();
 			String nom_client = la_vue.getTxtNom().getText();
 			Boolean d_box = la_vue.getRdbtDbox().isSelected();
-			Boolean film_3d = la_vue.getRdbt3D().isSelected();
+			Boolean film_3d = la_vue.getRdbt3D().isSelected(); 
 			
 			if(nb_dispo-nb_place > 0 ) {
 				le_model.incsrire_client(nom_client, nb_place, 
