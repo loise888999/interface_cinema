@@ -8,6 +8,8 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.EventListener;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
@@ -17,12 +19,17 @@ import javax.swing.event.ChangeListener;
 public class Controleur {
 	
 	private Model le_model;
+	private Model2 le_model2;
 	private Vue la_vue;
+	private Vue2 la_vue2;
 	private Integer int_nobre_reserver;
 	
-	public Controleur(Model le_model, Vue la_vue) {
+	
+	public Controleur(Model le_model,Model2 le_model2 , Vue la_vue, Vue2 la_vue2) {
 		this.le_model = le_model;
+		this.le_model2 = le_model2;
 		this.la_vue = la_vue;
+		this.la_vue2 = la_vue2;
 		
 		
 		this.la_vue.addCalculateListener(new CalculateListener());
@@ -30,18 +37,14 @@ public class Controleur {
 		this.la_vue.addPreCalcul(new PreCalcul());
 		this.la_vue.addChoixDimanche(new ChoixDimanche(1));
 		this.la_vue.addChoixDimancheProc(new ChoixDimanche(2));
-		
+		this.la_vue.addRetourAuMenu(new RetourAuMenu());
+		this.la_vue.addAllerVue2(new AllerVue2());
 		
 		
 	}
 	
 	
-	public void menu_cinema() {
-		//active_menu_cinema()
-		
-		
-		
-	}
+	
 	
 	class CalculateListener implements ActionListener{
 		
@@ -130,6 +133,48 @@ public class Controleur {
 		}
 
 		
+	}
+	
+	
+	
+	class RetourAuMenu implements ActionListener {
+		
+		
+		public void actionPerformed(ActionEvent e) {
+			
+			JPanel menu_cinema = la_vue.getPanel_cinema();
+			JPanel menu =la_vue.getMenu();
+			
+			le_model.active_menu_cinema(menu, menu_cinema);
+			
+		}
+		
+	}
+	
+	
+	
+	class AllerVue2 implements ActionListener {
+		
+		public void actionPerformed(ActionEvent e) {
+			System.out.println("bonne place poure aller voire vue 2");
+			JFrame frame = la_vue2.getFrame();
+			
+			
+			
+			
+			//la_vue2.getFrames().set
+			
+			
+		}
+	}
+	
+	
+	
+	class ModifierListe implements ActionListener {
+		
+		public void actionPerformed(ActionEvent e) {
+			System.out.println("dddddsadasgfsdgsdgds");
+		}
 	}
 
 	

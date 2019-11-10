@@ -1,28 +1,28 @@
 package mvc;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
+import java.awt.Font;
 import javax.swing.JToggleButton;
-import javax.swing.JList;
 
-public class Vue2 extends JFrame {
+public class Vue2 {
 
-	private JPanel contentPane;
-
+	private JFrame frame;
+	private JButton btnRetirer = new JButton("Retirer");
+	private JButton btnRetour = new JButton("Retour");
+	private JToggleButton tglbtnDimancheProchain = new JToggleButton("Dimanche prochain");
+	
 	/**
 	 * Launch the application.
-	 */
+	 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Vue2 frame = new Vue2();
-					frame.setVisible(true);
+					Vue2 window = new Vue2();
+					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -30,31 +30,70 @@ public class Vue2 extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+	
+	 * Create the application.
+	
 	public Vue2() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 287, 423);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		
-		JButton btnNewButton = new JButton("Retirer");
-		btnNewButton.setBounds(172, 339, 89, 34);
-		contentPane.add(btnNewButton);
-		
-		JButton btnQuit = new JButton("Quiter");
-		btnQuit.setBounds(10, 339, 112, 34);
-		contentPane.add(btnQuit);
-		
-		JToggleButton tglbtnNewToggleButton = new JToggleButton("Dimanche prochain");
-		tglbtnNewToggleButton.setBounds(52, 294, 173, 34);
-		contentPane.add(tglbtnNewToggleButton);
-		
-		JList list = new JList();
-		list.setBounds(10, 11, 251, 258);
-		contentPane.add(list);
+		initialize();
 	}
+
+	/
+	 * Initialize the contents of the frame.
+	 */
+	Vue2(){
+		frame = new JFrame();
+		frame.setBounds(100, 100, 395, 494);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		
+		btnRetirer.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		btnRetirer.setBounds(207, 389, 162, 55);
+		frame.getContentPane().add(btnRetirer);
+		
+		
+		btnRetour.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		btnRetour.setBounds(10, 389, 162, 55);
+		frame.getContentPane().add(btnRetour);
+		
+		
+		tglbtnDimancheProchain.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		tglbtnDimancheProchain.setBounds(43, 325, 290, 53);
+		frame.getContentPane().add(tglbtnDimancheProchain);
+	}
+
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+
+	public JButton getBtnRetirer() {
+		return btnRetirer;
+	}
+
+	public void setBtnRetirer(JButton btnRetirer) {
+		this.btnRetirer = btnRetirer;
+	}
+
+	public JButton getBtnRetour() {
+		return btnRetour;
+	}
+
+	public void setBtnRetour(JButton btnRetour) {
+		this.btnRetour = btnRetour;
+	}
+
+	public JToggleButton getTglbtnDimancheProchain() {
+		return tglbtnDimancheProchain;
+	}
+
+	public void setTglbtnDimancheProchain(JToggleButton tglbtnDimancheProchain) {
+		this.tglbtnDimancheProchain = tglbtnDimancheProchain;
+	}
+	
+	
+
 }

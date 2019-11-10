@@ -18,6 +18,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import mvc.Controleur.ChoixDimanche;
+import mvc.Controleur.RetourAuMenu;
 
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
@@ -27,9 +28,8 @@ import java.beans.PropertyChangeEvent;
 public class Vue {
 
 	private JFrame frame;
-	private JTextField txtMenue;
 	private JPanel menu = new JPanel();
-	private JButton btnMenue = new JButton("menue2");
+	private JButton btnMenue = new JButton("Menu cinema");
 	private JPanel panel_cinema = new JPanel();
 	private JRadioButton rdbtne_1dimanche = new JRadioButton("Ce dimanche");
 	private JRadioButton rdbtnDimancheProchain = new JRadioButton("Dimanche prochain (-1$ )");
@@ -55,6 +55,8 @@ public class Vue {
 	private JLabel labelRetourError = new JLabel("");
 	private JLabel lblPrixCalc = new JLabel("7$");
 	private JButton btnCalculerPrix = new JButton("Calculer");
+	private JButton btnModifierLesReservation = new JButton("Modifier les reservation");
+	private JButton btnRetour = new JButton("Retour");
 	
 	/**
 	 * Launch the application.
@@ -92,16 +94,15 @@ public class Vue {
 		
 		frame.getContentPane().add(menu, "name_530398796008400");
 		menu.setLayout(null);
-		
-		txtMenue = new JTextField();
-		txtMenue.setText("menu");
-		txtMenue.setBounds(425, 230, 116, 22);
-		menu.add(txtMenue);
-		txtMenue.setColumns(10);
+		btnMenue.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		
 		
-		btnMenue.setBounds(510, 384, 97, 25);
+		btnMenue.setBounds(242, 148, 245, 47);
 		menu.add(btnMenue);
+		btnModifierLesReservation.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnModifierLesReservation.setBounds(242, 289, 245, 47);
+		
+		menu.add(btnModifierLesReservation);
 		
 		
 		
@@ -110,13 +111,7 @@ public class Vue {
 		
 			
 		
-		
-			
-		
-		
-		
-		
-		
+	
 	
 		rdbtne_1dimanche.setSelected(true);
 		rdbtne_1dimanche.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -260,7 +255,7 @@ public class Vue {
 		labelRetourError.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
 		
-		labelRetourError.setBounds(444, 13, 347, 44);
+		labelRetourError.setBounds(444, 13, 226, 44);
 		panel_cinema.add(labelRetourError);
 		lblPrixCalc.setToolTipText("prix selon ce qui a eter selectioner");
 		
@@ -274,6 +269,11 @@ public class Vue {
 		btnCalculerPrix.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnCalculerPrix.setBounds(427, 341, 94, 47);
 		panel_cinema.add(btnCalculerPrix);
+		
+		btnRetour.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnRetour.setBounds(671, 4, 116, 35);
+		
+		panel_cinema.add(btnRetour);
 		
 		
 		
@@ -313,6 +313,14 @@ public class Vue {
 		
 		rdbtnDimancheProchain.addActionListener(choixDimanche);
 	}
+	
+	void addRetourAuMenu(ActionListener RetourAuMenu) {
+		btnRetour.addActionListener(RetourAuMenu);
+	}
+	
+	void addAllerVue2(ActionListener AllerVue2) {
+		btnModifierLesReservation.addActionListener(AllerVue2);
+	}
 
 	
 		
@@ -326,13 +334,7 @@ public class Vue {
 		this.frame = frame;
 	}
 
-	public JTextField getTxtMenue() {
-		return txtMenue;
-	}
-
-	public void setTxtMenue(JTextField txtMenue) {
-		this.txtMenue = txtMenue;
-	}
+	
 
 	public JPanel getMenu() {
 		return menu;
@@ -350,7 +352,23 @@ public class Vue {
 		this.btnMenue = btnMenue;
 	}
 
+	
 
+	public JButton getBtnModifierLesReservation() {
+		return btnModifierLesReservation;
+	}
+
+	public void setBtnModifierLesReservation(JButton btnModifierLesReservation) {
+		this.btnModifierLesReservation = btnModifierLesReservation;
+	}
+
+	public JButton getBtnRetour() {
+		return btnRetour;
+	}
+
+	public void setBtnRetour(JButton btnRetour) {
+		this.btnRetour = btnRetour;
+	}
 
 	public JPanel getPanel_cinema() {
 		return panel_cinema;
@@ -544,5 +562,7 @@ public class Vue {
 	public void setBtnCalculerPrix(JButton btnCalculerPrix) {
 		this.btnCalculerPrix = btnCalculerPrix;
 	}
+
+	
 	
 }
