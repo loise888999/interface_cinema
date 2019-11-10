@@ -5,7 +5,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+
 import javax.swing.JToggleButton;
+import javax.swing.JList;
 
 public class Vue2 {
 
@@ -13,6 +16,7 @@ public class Vue2 {
 	private JButton btnRetirer = new JButton("Retirer");
 	private JButton btnRetour = new JButton("Retour");
 	private JToggleButton tglbtnDimancheProchain = new JToggleButton("Dimanche prochain");
+	private JList listPlace = new JList();
 	
 	/**
 	 * Launch the application.
@@ -60,7 +64,30 @@ public class Vue2 {
 		tglbtnDimancheProchain.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		tglbtnDimancheProchain.setBounds(43, 325, 290, 53);
 		frame.getContentPane().add(tglbtnDimancheProchain);
+		listPlace.setBounds(10, 11, 359, 289);
+		
+		frame.getContentPane().add(listPlace);
 	}
+	
+	
+	void addModifierListe(ActionListener ModifierListe){
+			 
+		
+		btnRetirer.addActionListener(ModifierListe);
+	          
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	public JFrame getFrame() {
 		return frame;
@@ -92,6 +119,14 @@ public class Vue2 {
 
 	public void setTglbtnDimancheProchain(JToggleButton tglbtnDimancheProchain) {
 		this.tglbtnDimancheProchain = tglbtnDimancheProchain;
+	}
+
+	public JList getListPlace() {
+		return listPlace;
+	}
+
+	public void setListPlace(JList listPlace) {
+		this.listPlace = listPlace;
 	}
 	
 	

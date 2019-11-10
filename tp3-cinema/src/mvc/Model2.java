@@ -11,7 +11,7 @@ public class Model2 {
 	
 	public void active_menu_liste( ) {
 		//activer.setVisible(true);
-		System.out.println("sdasfasg");
+		System.out.println("dans model2");
 		
 		
 	}

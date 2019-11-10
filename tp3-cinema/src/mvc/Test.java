@@ -15,7 +15,7 @@ public class Test {
 		
 		
 		la_vue.getFrame().setVisible(true);
-		la_vue2.getFrame().setVisible(true);
+		la_vue2.getFrame().setVisible(false);
 		
 		
 		

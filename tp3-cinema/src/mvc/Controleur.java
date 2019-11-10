@@ -39,7 +39,7 @@ public class Controleur {
 		this.la_vue.addChoixDimancheProc(new ChoixDimanche(2));
 		this.la_vue.addRetourAuMenu(new RetourAuMenu());
 		this.la_vue.addAllerVue2(new AllerVue2());
-		
+		this.la_vue2.addModifierListe(new ModifierListe());
 		
 	}
 	
@@ -158,7 +158,7 @@ public class Controleur {
 		public void actionPerformed(ActionEvent e) {
 			System.out.println("bonne place poure aller voire vue 2");
 			JFrame frame = la_vue2.getFrame();
-			
+			frame.setVisible(true);
 			
 			
 			
@@ -173,7 +173,7 @@ public class Controleur {
 	class ModifierListe implements ActionListener {
 		
 		public void actionPerformed(ActionEvent e) {
-			System.out.println("dddddsadasgfsdgsdgds");
+			System.out.println("modifier liste");
 		}
 	}
 
