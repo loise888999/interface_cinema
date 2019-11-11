@@ -40,6 +40,7 @@ public class Controleur {
 		this.la_vue.addRetourAuMenu(new RetourAuMenu());
 		this.la_vue.addAllerVue2(new AllerVue2());
 		this.la_vue2.addModifierListe(new ModifierListe());
+		//this.la_vue2.addRetourMenuDeDeuximeFrame(new RetourMenuDeDeuximeFrame());
 		
 	}
 	
@@ -158,11 +159,13 @@ public class Controleur {
 		public void actionPerformed(ActionEvent e) {
 			System.out.println("bonne place poure aller voire vue 2");
 			JFrame frame = la_vue2.getFrame();
-			frame.setVisible(true);
+			
+			
+			le_model2.active_menu_liste(frame);
+			frame = le_model2.getFrame();
 			
 			
 			
-			//la_vue2.getFrames().set
 			
 			
 		}
@@ -171,6 +174,15 @@ public class Controleur {
 	
 	
 	class ModifierListe implements ActionListener {
+		
+		public void actionPerformed(ActionEvent e) {
+			System.out.println("modifier liste");
+		}
+	}
+	
+	
+	
+	class RetourMenuDeDeuximeFrame implements ActionListener {
 		
 		public void actionPerformed(ActionEvent e) {
 			System.out.println("modifier liste");
