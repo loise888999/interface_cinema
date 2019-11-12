@@ -77,6 +77,15 @@ public class Vue2 {
 	          
 	}
 	
+	void addRetourMenuDeDeuximeFrame(ActionListener RetourMenuDeDeuximeFrame) {
+		btnRetour.addActionListener(RetourMenuDeDeuximeFrame);
+	}
+	
+	void addRetirerDesClientList(ActionListener RetirerDesClientList) {
+		btnRetirer.addActionListener(RetirerDesClientList);
+	}
+	
+	
 	
 	
 	

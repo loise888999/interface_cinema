@@ -11,8 +11,10 @@ import java.util.EventListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JToggleButton;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -23,6 +25,8 @@ public class Controleur {
 	private Vue la_vue;
 	private Vue2 la_vue2;
 	private Integer int_nobre_reserver;
+	private JFrame frame;
+	private JList liste_aficher;
 	
 	
 	public Controleur(Model le_model,Model2 le_model2 , Vue la_vue, Vue2 la_vue2) {
@@ -40,8 +44,8 @@ public class Controleur {
 		this.la_vue.addRetourAuMenu(new RetourAuMenu());
 		this.la_vue.addAllerVue2(new AllerVue2());
 		this.la_vue2.addModifierListe(new ModifierListe());
-		//this.la_vue2.addRetourMenuDeDeuximeFrame(new RetourMenuDeDeuximeFrame());
-		
+		this.la_vue2.addRetourMenuDeDeuximeFrame(new RetourMenuDeDeuximeFrame());
+		this.la_vue2.addRetirerDesClientList(new RetirerDesClientList());
 	}
 	
 	
@@ -159,11 +163,13 @@ public class Controleur {
 		public void actionPerformed(ActionEvent e) {
 			System.out.println("bonne place poure aller voire vue 2");
 			JFrame frame = la_vue2.getFrame();
+			JToggleButton boutonDimanche = la_vue2.getTglbtnDimancheProchain();
+			liste_aficher = la_vue2.getListPlace();
 			
-			
+			le_model2.faire_liste(boutonDimanche, liste_aficher);
 			le_model2.active_menu_liste(frame);
 			frame = le_model2.getFrame();
-			
+			liste_aficher = le_model2.getListe_aficher();
 			
 			
 			
@@ -176,7 +182,12 @@ public class Controleur {
 	class ModifierListe implements ActionListener {
 		
 		public void actionPerformed(ActionEvent e) {
-			System.out.println("modifier liste");
+			JToggleButton boutonDimanche = la_vue2.getTglbtnDimancheProchain();
+			
+			
+			
+			
+			
 		}
 	}
 	
@@ -185,7 +196,25 @@ public class Controleur {
 	class RetourMenuDeDeuximeFrame implements ActionListener {
 		
 		public void actionPerformed(ActionEvent e) {
-			System.out.println("modifier liste");
+			frame = la_vue2.getFrame();
+			
+			le_model2.retour_menuDeDeuximeFrame(frame);
+			frame = le_model2.getFrame();
+			
+			
+		}
+	}
+	
+	
+	class RetirerDesClientList implements ActionListener {
+		
+		public void actionPerformed(ActionEvent e) {
+			liste_aficher = la_vue2.getListPlace();
+			le_model2.modifier_liste(liste_aficher);
+			
+			
+			liste_aficher= le_model2.getListe_aficher();
+			
 		}
 	}
 

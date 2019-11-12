@@ -69,7 +69,6 @@ public class Model {
 		String nom_char="";
 		
 		
-		
 		for (Integer i = 0  ; i < nom.length(); i++) {
 			if (nom.charAt(i) == '/') {
 				
