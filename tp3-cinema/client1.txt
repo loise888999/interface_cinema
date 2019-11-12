@@ -6,7 +6,5 @@ ello/7.0/1
 Nom/28.0/4
 Nom/7.0/1
 Nom/7.0/1
-Nom/7.0/1
-Nom/7.0/1
 alexendre/17.6/2
 jeremie/35.2/4
