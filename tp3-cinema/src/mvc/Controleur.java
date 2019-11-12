@@ -112,9 +112,13 @@ public class Controleur {
 		
 		public void actionPerformed(ActionEvent e) {
 			String prix_calculer;
+			int nobre_de_persone = la_vue.getcBoxNbReservatin().getSelectedIndex();
+			boolean popcorn = la_vue.getRdbtPopc().isSelected();
+			boolean dbox = la_vue.getRdbtDbox().isSelected();
+			boolean d3 = la_vue.getRdbt3D().isSelected();
+			JRadioButton la_semain2 = la_vue.getRadioButton_2dimanche();
 			
-			prix_calculer=le_model.preCalcul( la_vue.getcBoxNbReservatin().getSelectedIndex(), 
-					la_vue.getRdbtPopc().isSelected(), la_vue.getRdbtDbox().isSelected(), la_vue.getRdbt3D().isSelected());
+			prix_calculer=le_model.preCalcul(nobre_de_persone , popcorn, dbox, d3, la_semain2);
 			la_vue.setLblPrixCalc(prix_calculer);
 			
 			
@@ -130,7 +134,7 @@ public class Controleur {
 		}
 
 		public void actionPerformed(ActionEvent e) {
-			System.out.println("choi dimanche"+val);
+			
 			
 			le_model.choixDuDimanche(val,la_vue.getRdbtne_1dimanche(), la_vue.getRdbtnDimancheProchain());
 			

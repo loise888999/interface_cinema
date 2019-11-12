@@ -15,9 +15,9 @@ import javax.swing.JTextField;
 
 //calcule
 public class Model {
-	String fichier_de_semain = "1.txt";
-	String client = "client";
-	String liste_clien = client+fichier_de_semain;
+	private String fichier_de_semain = "1.txt";
+	private String client = "client";
+	private String liste_clien = client+fichier_de_semain;
 	
 	
 	String[] listeClien= new String[50];
@@ -103,9 +103,14 @@ public class Model {
 	}
 	
 	
-	public String preCalcul( Integer nobre_de_place  , Boolean popcorn_inc, Boolean dbox_inc, Boolean d3_inc) {
+	public String preCalcul( Integer nobre_de_place  , Boolean popcorn_inc, Boolean dbox_inc, Boolean d3_inc, JRadioButton semain) {
 		String texte;
 		Double prix_total = 7.00;
+		
+		if (semain.isSelected()) {
+			prix_total= prix_total-1.00;
+		}
+		
 		nobre_de_place += 1;
 		
 		
@@ -134,16 +139,13 @@ public class Model {
 	
 	
 	
-	public void test(Boolean test) {
-		System.out.println(test.toString());
-		
-	}
 	
 	
 	public void enregistrer(String enregistrement) {
+		String ficier_nom = getListe_clien();
 		
 		try {
-			BufferedWriter fi_ecrir = new BufferedWriter(new FileWriter(liste_clien, true)); 
+			BufferedWriter fi_ecrir = new BufferedWriter(new FileWriter(ficier_nom, true)); 
 			fi_ecrir.write(enregistrement+"\n");
 			fi_ecrir.close();
 		
@@ -158,18 +160,20 @@ public class Model {
 	
 	
 	public void choixDuDimanche(Integer bonton_clik,JRadioButton ce_dimanche, JRadioButton dimanche_prochain) {
+		String non_fichier;
 		if (bonton_clik ==1) {
 			
 			dimanche_prochain.setSelected(false);
 			ce_dimanche.setSelected(true);
-			fichier_de_semain = "1.txt";
-			
+			non_fichier = "1.txt";
+			setFichier_de_semain(non_fichier);
 		}
 		if (bonton_clik == 2) {
-			
+			System.out.println("choi dimanche2");
 			dimanche_prochain.setSelected(true);
 			ce_dimanche.setSelected(false);
-			fichier_de_semain = "1.txt";
+			non_fichier = "2.txt";
+			setFichier_de_semain(non_fichier);
 		}
 		
 		
@@ -190,6 +194,30 @@ public class Model {
 
 	public Integer getPlace_ocuper() {
 		return place_ocuper;
+	}
+
+	public String getFichier_de_semain() {
+		return fichier_de_semain;
+	}
+
+	public void setFichier_de_semain(String fichier_de_semain) {
+		this.fichier_de_semain = fichier_de_semain;
+	}
+
+	public String getClient() {
+		return client;
+	}
+
+	public void setClient(String client) {
+		this.client = client;
+	}
+
+	public String getListe_clien() {
+		return liste_clien;
+	}
+
+	public void setListe_clien(String liste_clien) {
+		this.liste_clien = liste_clien;
 	}
 	
 	
