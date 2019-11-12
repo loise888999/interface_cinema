@@ -24,7 +24,7 @@ public class Controleur {
 	private Model2 le_model2;
 	private Vue la_vue;
 	private Vue2 la_vue2;
-	private Integer int_nobre_reserver;
+	
 	private JFrame frame;
 	private JList liste_aficher;
 	
@@ -57,10 +57,10 @@ public class Controleur {
 			
 			le_model.active_menu_cinema(la_vue.getPanel_cinema(),la_vue.getMenu());
 			
-			int_nobre_reserver=le_model.charger_liste_clien();
+			le_model.charger_liste_clien();
 			
-			la_vue.setLblOccuperPlace(int_nobre_reserver.toString());
-			la_vue.setLblDisponiblePlace(String.valueOf(50-int_nobre_reserver));
+			la_vue.setLblOccuperPlace(le_model.getPlace_ocuper().toString());
+			la_vue.setLblDisponiblePlace(String.valueOf(le_model.getPlace_disponible()));
 			
 		}
 	}
@@ -76,12 +76,13 @@ public class Controleur {
 			String nom_client = la_vue.getTxtNom().getText();
 			Boolean d_box = la_vue.getRdbtDbox().isSelected();
 			Boolean film_3d = la_vue.getRdbt3D().isSelected(); 
+			JRadioButton semain = la_vue.getRadioButton_2dimanche();
 			
 			if(nb_dispo-nb_place > 0 ) {
 				le_model.incsrire_client(nom_client, nb_place, 
-						popcorn, d_box, film_3d);
+						popcorn, d_box, film_3d,semain);
 			
-				int_nobre_reserver=le_model.charger_liste_clien();
+				le_model.charger_liste_clien();
 				
 				
 				
@@ -89,7 +90,7 @@ public class Controleur {
 				JLabel lblplace_disponible = la_vue.getLblDisponiblePlace();
 				JLabel lbltext_erreur = la_vue.getLabelRetourError();
 				
-				le_model.placerEnVueLesPlace(int_nobre_reserver, lblplace_disponible, lblplace_ocuper );
+				le_model.placerEnVueLesPlace( lblplace_disponible, lblplace_ocuper );
 				
 				la_vue.setLblOccuperPlace(le_model.getPlace_ocuper().toString());
 				la_vue.setLblDisponiblePlace(String.valueOf(50-le_model.getPlace_ocuper()));
@@ -134,9 +135,22 @@ public class Controleur {
 		}
 
 		public void actionPerformed(ActionEvent e) {
-			
+			JLabel lblplace_ocuper = la_vue.getLblOccuperPlace();
+			JLabel lblplace_disponible = la_vue.getLblDisponiblePlace();
+			JLabel lbltext_erreur = la_vue.getLabelRetourError();
 			
 			le_model.choixDuDimanche(val,la_vue.getRdbtne_1dimanche(), la_vue.getRdbtnDimancheProchain());
+			
+			
+			
+			
+			le_model.placerEnVueLesPlace( lblplace_disponible, lblplace_ocuper );
+			
+			la_vue.setLblOccuperPlace(le_model.getPlace_ocuper().toString());
+			la_vue.setLblDisponiblePlace(String.valueOf(50-le_model.getPlace_ocuper()));
+			la_vue.setLabelRetourError("");
+			
+			
 			
 			
 		}

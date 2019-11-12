@@ -18,7 +18,7 @@ public class Model {
 	private String fichier_de_semain = "1.txt";
 	private String client = "client";
 	private String liste_clien = client+fichier_de_semain;
-	
+	private Integer place_disponible, place_ocuper;
 	
 	String[] listeClien= new String[50];
 	
@@ -32,20 +32,20 @@ public class Model {
 		
 	}
 	
-	public Integer charger_liste_clien() {
-		
+	public void charger_liste_clien() {
+		System.out.println(getListe_clien());
 		String paterne ="[^ ]*";
 		Integer nb_persone=0;
 		char ligne;
 		int i=0;
 		try {
-			File fichier = new File(liste_clien);
+			File fichier = new File(getListe_clien());
 			Scanner cherc = new Scanner(fichier);
 			while (cherc.hasNextLine()) {
 				
 				String valq = cherc.next(paterne);
 				listeClien[i] = valq.toString();
-				System.out.println(listeClien[i]);
+				
 				ligne = listeClien[i].charAt(listeClien[i].length()-1);
 				nb_persone = nb_persone + Character.getNumericValue(ligne);
 				
@@ -59,10 +59,11 @@ public class Model {
 		
 		System.out.println(nb_persone);
 		
-		return nb_persone;
+		setPlace_disponible(50-nb_persone);
+		setPlace_ocuper(nb_persone);
 	}
 	
-	public void incsrire_client(String nom, Integer nobre_de_place  , Boolean popcorn_inc, Boolean dbox_inc, Boolean d3_inc) {
+	public void incsrire_client(String nom, Integer nobre_de_place  , Boolean popcorn_inc, Boolean dbox_inc, Boolean d3_inc, JRadioButton semain) {
 		String texte;
 		Double prix_total = 7.00;
 		nobre_de_place += 1;
@@ -75,6 +76,10 @@ public class Model {
 			} else {
 				nom_char =nom_char + nom.charAt(i);
 			}
+			
+		}
+		if (semain.isSelected() == true) {
+			prix_total= prix_total-1.00;
 			
 		}
 		
@@ -107,8 +112,9 @@ public class Model {
 		String texte;
 		Double prix_total = 7.00;
 		
-		if (semain.isSelected()) {
+		if (semain.isSelected() == true) {
 			prix_total= prix_total-1.00;
+			
 		}
 		
 		nobre_de_place += 1;
@@ -143,7 +149,7 @@ public class Model {
 	
 	public void enregistrer(String enregistrement) {
 		String ficier_nom = getListe_clien();
-		
+		System.out.println(ficier_nom);
 		try {
 			BufferedWriter fi_ecrir = new BufferedWriter(new FileWriter(ficier_nom, true)); 
 			fi_ecrir.write(enregistrement+"\n");
@@ -167,6 +173,8 @@ public class Model {
 			ce_dimanche.setSelected(true);
 			non_fichier = "1.txt";
 			setFichier_de_semain(non_fichier);
+			
+			
 		}
 		if (bonton_clik == 2) {
 			System.out.println("choi dimanche2");
@@ -174,22 +182,40 @@ public class Model {
 			ce_dimanche.setSelected(false);
 			non_fichier = "2.txt";
 			setFichier_de_semain(non_fichier);
+			
 		}
-		
-		
+		setListe_clien(client+getFichier_de_semain());
+		charger_liste_clien();
 	}
 	
-	Integer place_disponible, place_ocuper;
 	
-	public void placerEnVueLesPlace(Integer no_persone, JLabel lblplace_disponible, JLabel lblplace_ocuper) {
-		place_disponible = Integer.valueOf(lblplace_disponible.getText())-no_persone;
-		place_ocuper = no_persone;
+	
+	public void placerEnVueLesPlace( JLabel lblplace_disponible, JLabel lblplace_ocuper) {
+		place_ocuper = getPlace_ocuper();
+		place_disponible = Integer.valueOf(lblplace_disponible.getText())-getPlace_ocuper();
+		
 		
 		
 	}
 
 	public Integer getPlace_disponible() {
 		return place_disponible;
+	}
+	
+	public String[] getListeClien() {
+		return listeClien;
+	}
+
+	public void setListeClien(String[] listeClien) {
+		this.listeClien = listeClien;
+	}
+
+	public void setPlace_disponible(Integer place_disponible) {
+		this.place_disponible = place_disponible;
+	}
+
+	public void setPlace_ocuper(Integer place_ocuper) {
+		this.place_ocuper = place_ocuper;
 	}
 
 	public Integer getPlace_ocuper() {
