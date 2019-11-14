@@ -26,8 +26,9 @@ public class Model2 {
 	private JToggleButton boutonDimanche;
 	
 	public void active_menu_liste(JFrame frame) {
+		frame.setVisible(false);
 		frame.setVisible(true);
-		
+		setFrame(frame);
 		
 		
 	}
@@ -43,6 +44,7 @@ public class Model2 {
 	
 	public void faire_liste(JToggleButton boutonDimanche, JList liste_aficher) {
 		String paterne ="[^ ]*";
+		String[] nouvel_liste_de_client = new String[50];
 		
 		
 		int i=0;
@@ -62,7 +64,7 @@ public class Model2 {
 			while (cherc.hasNextLine()) {
 				
 				String valq = cherc.next(paterne);
-				liste_de_client[i] = valq.toString();
+				nouvel_liste_de_client[i] = valq.toString();
 				
 				i++;
 			}
@@ -72,17 +74,22 @@ public class Model2 {
 			
 		}
 		
-		liste_aficher.setListData(liste_de_client);
-	
+		liste_aficher.setListData(nouvel_liste_de_client);
+		setListe_aficher(liste_aficher);
 	}
 
 	
 	
-	public void modifier_liste(JList liste_aficher) {
+	public void modifier_liste(JList liste_aficher,JToggleButton boutonDimanche) {
 		String[] nouvel_liste_de_client = new String[50];
 		
 		Integer selectioner=liste_aficher.getSelectedIndex();
-	
+		if (boutonDimanche.isSelected()) {
+			fichier_de_semain = "2.txt";
+		} else {
+			fichier_de_semain = "1.txt";
+		}
+		liste_clien = client+fichier_de_semain;
 		
 		int pas_prit=0;
 		for (int i = 0; i < liste_de_client.length-1; i++) {
@@ -133,6 +140,19 @@ public class Model2 {
 	public JList getListe_aficher() {
 		return liste_aficher;
 	}
+
+	public void setListe_aficher(JList liste_aficher) {
+		this.liste_aficher = liste_aficher;
+	}
+
+	public void setListe_de_client(String[] liste_de_client) {
+		this.liste_de_client = liste_de_client;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+	
 	
 	
 }

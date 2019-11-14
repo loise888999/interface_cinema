@@ -85,6 +85,9 @@ public class Vue2 {
 		btnRetirer.addActionListener(RetirerDesClientList);
 	}
 	
+	void addAllerVue2(ActionListener AllerVue2) {
+		tglbtnDimancheProchain.addActionListener(AllerVue2);
+	}
 	
 	
 	

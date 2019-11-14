@@ -70,7 +70,7 @@ public class Controleur {
 			
 			Integer nb_place = la_vue.getcBoxNbReservatin().getSelectedIndex();
 			Integer nb_dispo = Integer.valueOf(la_vue.getLblDisponiblePlace().getText()) ;
-			System.out.println(nb_dispo);
+			
 			
 			Boolean popcorn = la_vue.getRdbtPopc().isSelected();
 			String nom_client = la_vue.getTxtNom().getText();
@@ -179,7 +179,7 @@ public class Controleur {
 	class AllerVue2 implements ActionListener {
 		
 		public void actionPerformed(ActionEvent e) {
-			System.out.println("bonne place poure aller voire vue 2");
+			
 			JFrame frame = la_vue2.getFrame();
 			JToggleButton boutonDimanche = la_vue2.getTglbtnDimancheProchain();
 			liste_aficher = la_vue2.getListPlace();
@@ -203,9 +203,6 @@ public class Controleur {
 			JToggleButton boutonDimanche = la_vue2.getTglbtnDimancheProchain();
 			
 			
-			
-			
-			
 		}
 	}
 	
@@ -227,8 +224,9 @@ public class Controleur {
 	class RetirerDesClientList implements ActionListener {
 		
 		public void actionPerformed(ActionEvent e) {
+			JToggleButton boutonDimanche = la_vue2.getTglbtnDimancheProchain();
 			liste_aficher = la_vue2.getListPlace();
-			le_model2.modifier_liste(liste_aficher);
+			le_model2.modifier_liste(liste_aficher,boutonDimanche);
 			
 			
 			liste_aficher= le_model2.getListe_aficher();

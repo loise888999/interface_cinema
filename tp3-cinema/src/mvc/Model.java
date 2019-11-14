@@ -27,13 +27,10 @@ public class Model {
 		desactiver.setVisible(false);	
 	}
 	
-	public void liste_clien(String[] la_liste, String le_nom, int prix) {
-		
-		
-	}
+	
 	
 	public void charger_liste_clien() {
-		System.out.println(getListe_clien());
+		
 		String paterne ="[^ ]*";
 		Integer nb_persone=0;
 		char ligne;
@@ -57,7 +54,7 @@ public class Model {
 			
 		}
 		
-		System.out.println(nb_persone);
+		
 		
 		setPlace_disponible(50-nb_persone);
 		setPlace_ocuper(nb_persone);
@@ -102,7 +99,7 @@ public class Model {
 		
 		
 		texte = nom_char +"/" + prix_total + "/" + nobre_de_place  ;
-		System.out.println(texte);
+		
 		enregistrer(texte);
 		
 	}
@@ -149,7 +146,7 @@ public class Model {
 	
 	public void enregistrer(String enregistrement) {
 		String ficier_nom = getListe_clien();
-		System.out.println(ficier_nom);
+		
 		try {
 			BufferedWriter fi_ecrir = new BufferedWriter(new FileWriter(ficier_nom, true)); 
 			fi_ecrir.write(enregistrement+"\n");
@@ -177,7 +174,7 @@ public class Model {
 			
 		}
 		if (bonton_clik == 2) {
-			System.out.println("choi dimanche2");
+			
 			dimanche_prochain.setSelected(true);
 			ce_dimanche.setSelected(false);
 			non_fichier = "2.txt";
